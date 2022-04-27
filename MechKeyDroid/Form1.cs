@@ -9,7 +9,8 @@ namespace MechKeyDroid
     public partial class Form1 : Form
     {
         double volumeMultiplier = 0.25;
-
+        int keyPressed;
+        
         [DllImport("user32.dll")]
         static extern short GetAsyncKeyState(Int32 virtualKey);
 
@@ -25,27 +26,55 @@ namespace MechKeyDroid
         {
             while (true)
             {
+              
                 if (!backgroundWorker.CancellationPending)
                 {
-                    
                     Thread.Sleep(5);
+                    
                     for (int i = 8; i < 255; i++) //start from i=0 for mouse clicks as well
                     {
+                        
                         int keyState = GetAsyncKeyState(i);
-                        if (keyState == -32767)
+                        if (keyState == -32767 && i != keyPressed)
                         {
+                            keyPressed = i;
                             //Invoke(new Action(() =>
                             //{
                             //    keysListView.Items.Add(((char)i).ToString());
                             //}));
 
-                            var wavReader = new WaveFileReader("C:\\Users\\WINDROID\\Desktop\\audio_key_thock.wav");
-                            var wavOut = new WaveOut();
-                            wavOut.Volume = (float)volumeMultiplier;
-                            wavOut.Init(wavReader);
-                            wavOut.Play();
-                                                        
+                            //separate sound for Tab, CapsLock, LShift, RShift, Space, Backspace, Enter
+                            if (i == 9 || i == 20 || i == 160 || i == 161 || i == 32 || i == 8 || i == 13 || i == 16)
+                            {
+                                
+                                var wavReader = new WaveFileReader("C:\\Users\\WINDROID\\Desktop\\audio_key_delete.wav");
+                                var wavOut = new WaveOut();
+                                wavOut.Volume = (float)volumeMultiplier;
+                                wavOut.Init(wavReader);
+                                wavOut.Play();
 
+                                
+                            }
+                            //for all keys except those above
+                            else
+                            {         
+                                
+                                var wavReader = new WaveFileReader("C:\\Users\\WINDROID\\Desktop\\audio_key_thock.wav");
+                                var wavOut = new WaveOut();
+                                wavOut.Volume = (float)volumeMultiplier;
+                                wavOut.Init(wavReader);
+                                wavOut.Play();
+
+                            }
+                            
+                            //SoundPlayer soundPlayer = new SoundPlayer("C:\\Users\\WINDROID\\Desktop\\audio_key_thock.wav");
+                            //soundPlayer.Play();                                                     
+                            
+                        }
+                        //check for key release
+                        else if(keyState >=0 && i==keyPressed)
+                        {
+                            keyPressed = 0;
                         }
                     }
                 }
