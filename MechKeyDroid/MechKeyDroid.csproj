@@ -10,4 +10,11 @@
 	<ItemGroup>
 	  <PackageReference Include="NAudio" Version="2.0.1" />
 	</ItemGroup>
+
+	
+	<ItemGroup>
+	  <None Update="Resources\mechkeydroid_icon.ico">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
 </Project>

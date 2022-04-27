@@ -8,7 +8,7 @@ namespace MechKeyDroid
 {
     public partial class Form1 : Form
     {
-        double volumeMultiplier;
+        double volumeMultiplier = 0.25;
 
         [DllImport("user32.dll")]
         static extern short GetAsyncKeyState(Int32 virtualKey);
@@ -16,6 +16,7 @@ namespace MechKeyDroid
         public Form1()
         {
             InitializeComponent();
+            selectComboBox.SelectedIndex = 0; //set Default on startup
                         
             
         }
@@ -64,6 +65,11 @@ namespace MechKeyDroid
         private void Form1_Load(object sender, EventArgs e)
         {
             
+            notifyIcon.BalloonTipText = "Application has been minimized to tray. Click on the icon for more options.";
+            notifyIcon.Text = "MechKeyDroid";
+
+            this.Icon= new System.Drawing.Icon("Resources/mechkeydroid_icon.ico");
+            notifyIcon.Icon = new System.Drawing.Icon("Resources/mechkeydroid_icon.ico");
         }
 
         private void backgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
@@ -95,16 +101,38 @@ namespace MechKeyDroid
             
         }
 
+        private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            notifyIcon.Visible = true;
+            WindowState = FormWindowState.Normal;
+        }
 
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Minimized)
+            {
+                this.Hide();
+                notifyIcon.Visible = true;
+                notifyIcon.ShowBalloonTip(1000);
+            }
+            else if (FormWindowState.Normal == this.WindowState)
+            {
+                notifyIcon.Visible = false;
+            }
+        }
 
-        //private void stopButton_Click(object sender, EventArgs e)
-        //{
-        //    backgroundWorker.CancelAsync();
-        //    backgroundWorker.Dispose();
-        //    initButton.Enabled = true;
-        //}
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
 
-
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Show();
+            WindowState = FormWindowState.Normal;
+            notifyIcon.Visible = false;
+        }
     }
     
 }
