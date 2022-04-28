@@ -1,1 +1,1 @@
-Application that runs in the background, listens for keypress and makes mechanical keyboard sounds as you type.
+C# application that runs in system tray, listens for keypress and makes mechanical keyboard noises as you type. Keypress volume is adjustable in realtime using the slider provided. Currently supports two types of sounds: Default and Thock.
