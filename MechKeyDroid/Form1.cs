@@ -4,12 +4,15 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using NAudio.Wave;
 
+
 namespace MechKeyDroid
 {
     public partial class Form1 : Form
     {
         double volumeMultiplier = 0.25;
         int keyPressed;
+        string normalPath;
+        string spacePath;
         
         [DllImport("user32.dll")]
         static extern short GetAsyncKeyState(Int32 virtualKey);
@@ -18,8 +21,7 @@ namespace MechKeyDroid
         {
             InitializeComponent();
             selectComboBox.SelectedIndex = 0; //set Default on startup
-                        
-            
+                
         }
 
         private void handleKeyPress()
@@ -35,43 +37,40 @@ namespace MechKeyDroid
                     {
                         
                         int keyState = GetAsyncKeyState(i);
+                        //checking for i!=keyPressed ensures that sound will not repeat when holding down a key
+                        //but this brings another undesired consequence i.e no sound is produced when the same key is pressed more than once consecutively
+                        //so we deal with this using else if below
                         if (keyState == -32767 && i != keyPressed)
                         {
                             keyPressed = i;
-                            //Invoke(new Action(() =>
-                            //{
-                            //    keysListView.Items.Add(((char)i).ToString());
-                            //}));
-
+                            
                             //separate sound for Tab, CapsLock, LShift, RShift, Space, Backspace, Enter
                             if (i == 9 || i == 20 || i == 160 || i == 161 || i == 32 || i == 8 || i == 13 || i == 16)
                             {
                                 
-                                var wavReader = new WaveFileReader("C:\\Users\\WINDROID\\Desktop\\audio_key_delete.wav");
+                                var wavReader = new WaveFileReader(spacePath);
                                 var wavOut = new WaveOut();
                                 wavOut.Volume = (float)volumeMultiplier;
                                 wavOut.Init(wavReader);
                                 wavOut.Play();
-
+                                
                                 
                             }
                             //for all keys except those above
                             else
                             {         
                                 
-                                var wavReader = new WaveFileReader("C:\\Users\\WINDROID\\Desktop\\audio_key_thock.wav");
+                                var wavReader = new WaveFileReader(normalPath);
                                 var wavOut = new WaveOut();
                                 wavOut.Volume = (float)volumeMultiplier;
                                 wavOut.Init(wavReader);
                                 wavOut.Play();
 
                             }
-                            
-                            //SoundPlayer soundPlayer = new SoundPlayer("C:\\Users\\WINDROID\\Desktop\\audio_key_thock.wav");
-                            //soundPlayer.Play();                                                     
-                            
+                                                                            
                         }
-                        //check for key release
+                        //check for key release. keyState becomes positive when key is released
+                        //if key pressed now is the same key that was just pressed set flag to 0(reset the flag). this ensures audio is played even in consecutive presses of same key
                         else if(keyState >=0 && i==keyPressed)
                         {
                             keyPressed = 0;
@@ -161,6 +160,20 @@ namespace MechKeyDroid
             this.Show();
             WindowState = FormWindowState.Normal;
             notifyIcon.Visible = false;
+        }
+
+        private void selectComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(selectComboBox.SelectedIndex == 0)//default option
+            {
+                normalPath = "Resources/default_everything.wav";
+                spacePath = "Resources/default_space.wav";
+            }
+            else if(selectComboBox.SelectedIndex == 1)//thock option
+            {
+                normalPath = "Resources/thock_everything.wav";
+                spacePath = "Resources/thock_space.wav";
+            }
         }
     }
     

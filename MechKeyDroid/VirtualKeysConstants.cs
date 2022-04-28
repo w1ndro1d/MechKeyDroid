@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//this class is not actually used by the program. it just showcases the various virtual keys available and their hex values
+//extracted from http://pinvoke.net/default.aspx/Enums/VK.html
+//see this link as well for reference https://cherrytree.at/misc/vk.htm
+
 namespace MechKeyDroid
 {
     public static class VirtualKeysConstants

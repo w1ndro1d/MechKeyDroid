@@ -99,11 +99,13 @@ namespace MechKeyDroid
             this.selectComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.selectComboBox.FormattingEnabled = true;
             this.selectComboBox.Items.AddRange(new object[] {
-            "Default"});
+            "Default",
+            "Thock"});
             this.selectComboBox.Location = new System.Drawing.Point(6, 22);
             this.selectComboBox.Name = "selectComboBox";
             this.selectComboBox.Size = new System.Drawing.Size(241, 23);
             this.selectComboBox.TabIndex = 3;
+            this.selectComboBox.SelectedIndexChanged += new System.EventHandler(this.selectComboBox_SelectedIndexChanged);
             // 
             // groupBox2
             // 

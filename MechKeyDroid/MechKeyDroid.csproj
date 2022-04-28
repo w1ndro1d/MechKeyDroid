@@ -4,6 +4,12 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <Authors>WINDROID</Authors>
+    <Description>Make mechanical keyboard noises as you type.</Description>
+    <PackageIcon>mechkeydroid_icon.ico</PackageIcon>
+    <PackageIconUrl />
+    <ApplicationIcon>mechkeydroid_icon.ico</ApplicationIcon>
+    <Win32Resource />
   </PropertyGroup>
 
 	
@@ -13,8 +19,29 @@
 
 	
 	<ItemGroup>
+	  <None Update="Resources\default_everything.wav">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Resources\default_space.wav">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
 	  <None Update="Resources\mechkeydroid_icon.ico">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
+	  <None Update="Resources\thock_everything.wav">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Resources\thock_space.wav">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Include="Resources\mechkeydroid_icon.ico">
+	    <Pack>True</Pack>
+	    <PackagePath></PackagePath>
+	  </None>
+	</ItemGroup>
+
+	
+	<ItemGroup>
+	  <Folder Include="Properties\" />
 	</ItemGroup>
 </Project>
