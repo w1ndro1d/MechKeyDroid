@@ -11,10 +11,10 @@ namespace MechKeyDroid
     {
         double volumeMultiplier = 0.4;
         int keyPressed;
-        int j;
+        int j=8;
         int selectedOption;
         string normalPath;
-        string aPath, bPath, cPath, dPath, ePath, fPath, gPath, hPath, iPath, jPath, kPath, lPath, mPath, nPath, oPath, pPath, qPath, rPath, sPath, tPath, uPath, vPath, wPath, xPath, yPath, zPath, tabPath, capsPath, enterPath, shiftPath, backspacePath;
+        string aPath, bPath, cPath, dPath, ePath, fPath, gPath, hPath, iPath, jPath, kPath, lPath, mPath, nPath, oPath, pPath, qPath, rPath, sPath, tPath, uPath, vPath, wPath, xPath, yPath, zPath, tabPath, capsPath, enterPath, backspacePath;
 
         private void mouseCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -61,14 +61,21 @@ namespace MechKeyDroid
                         {
                             keyPressed = i;
 
+
+
                             //two conditions for default sound
                             if (selectedOption == 0)
                             {
-                                //separate sound for Tab, CapsLock, LShift, RShift, Space, Backspace, Enter
-                                if (i == 9 || i == 20 || i == 160 || i == 161 || i == 32 || i == 8 || i == 13 || i == 16 || i == 17 || i == 18)
+                                //separate sound for Tab, CapsLock, Space, Backspace, Enter
+                                if (i == 9 || i == 20 || i == 32 || i == 8 || i == 13)
                                 {
                                     playSound(spacePath);
 
+                                }
+                                //dont play sound for shift, control, alt
+                                else if (i == 16 || i == 17 || i == 18 || i == 160 || i == 161 || i == 162 || i == 163 || i == 164 || i == 165)
+                                {
+                                    break;
                                 }
                                 //for all keys except those above
                                 else
@@ -172,10 +179,6 @@ namespace MechKeyDroid
                                     case 13:
                                         playSound(enterPath);
                                         break;
-                                    //shift
-                                    case 16:
-                                        playSound(shiftPath);
-                                        break;
                                     //space
                                     case 32:
                                         playSound(spacePath);
@@ -192,6 +195,27 @@ namespace MechKeyDroid
                                     case 6:
                                         playSound(aPath);
                                         break;
+
+                                    //dont play sound for ctrl, shift and alt
+                                    case 16:
+                                        break;
+                                    case 17:
+                                        break;
+                                    case 18:
+                                        break;
+                                    case 160:
+                                        break;
+                                    case 161:
+                                        break;
+                                    case 162:
+                                        break;
+                                    case 163:
+                                        break;
+                                    case 164:
+                                        break;
+                                    case 165:
+                                        break;
+
                                     //any other key not specified above
                                     default:
                                         playSound(gPath);
@@ -368,7 +392,6 @@ namespace MechKeyDroid
                 tabPath = "Resources/nk-cream/tab.wav";
                 capsPath = "Resources/nk-cream/caps.wav";
                 enterPath = "Resources/nk-cream/enter.wav";
-                shiftPath = "Resources/nk-cream/shift.wav";
                 backspacePath = "Resources/nk-cream/backspace.wav";
                 spacePath = "Resources/nk-cream/space.wav";
             }
