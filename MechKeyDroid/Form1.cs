@@ -13,6 +13,7 @@ namespace MechKeyDroid
         int keyPressed;
         string normalPath;
         string spacePath;
+        bool trayNotifShown = false;
         
         [DllImport("user32.dll")]
         static extern short GetAsyncKeyState(Int32 virtualKey);
@@ -138,15 +139,21 @@ namespace MechKeyDroid
 
         private void Form1_Resize(object sender, EventArgs e)
         {
-            if (WindowState == FormWindowState.Minimized)
+            if (WindowState == FormWindowState.Minimized && trayNotifShown == false)
             {
                 this.Hide();
                 notifyIcon.Visible = true;
                 notifyIcon.ShowBalloonTip(1000);
+                trayNotifShown = true;
             }
             else if (FormWindowState.Normal == this.WindowState)
             {
                 notifyIcon.Visible = false;
+            }
+            else if(WindowState == FormWindowState.Minimized)
+            {
+                this.Hide();
+                notifyIcon.Visible = true;
             }
         }
 

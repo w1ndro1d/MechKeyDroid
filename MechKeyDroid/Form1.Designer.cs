@@ -54,7 +54,7 @@ namespace MechKeyDroid
             this.initButton.Name = "initButton";
             this.initButton.Size = new System.Drawing.Size(75, 32);
             this.initButton.TabIndex = 0;
-            this.initButton.Text = "Initiate";
+            this.initButton.Text = "Start";
             this.initButton.UseVisualStyleBackColor = true;
             this.initButton.Click += new System.EventHandler(this.initButton_Click);
             // 
@@ -115,7 +115,7 @@ namespace MechKeyDroid
             this.groupBox2.Size = new System.Drawing.Size(253, 68);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Preferred Sound";
+            this.groupBox2.Text = "Your choice";
             // 
             // notifyIcon
             // 
