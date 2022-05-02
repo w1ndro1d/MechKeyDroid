@@ -44,6 +44,7 @@ namespace MechKeyDroid
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
+            this.mouseCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.volumeTrackBar)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -52,7 +53,7 @@ namespace MechKeyDroid
             // 
             // initButton
             // 
-            this.initButton.Location = new System.Drawing.Point(111, 211);
+            this.initButton.Location = new System.Drawing.Point(113, 235);
             this.initButton.Name = "initButton";
             this.initButton.Size = new System.Drawing.Size(75, 32);
             this.initButton.TabIndex = 0;
@@ -152,11 +153,23 @@ namespace MechKeyDroid
             this.toolStripMenuItem2.Text = "Exit";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
+            // mouseCheckBox
+            // 
+            this.mouseCheckBox.AutoSize = true;
+            this.mouseCheckBox.Location = new System.Drawing.Point(24, 210);
+            this.mouseCheckBox.Name = "mouseCheckBox";
+            this.mouseCheckBox.Size = new System.Drawing.Size(186, 19);
+            this.mouseCheckBox.TabIndex = 4;
+            this.mouseCheckBox.Text = "Enable sound for mouse clicks";
+            this.mouseCheckBox.UseVisualStyleBackColor = true;
+            this.mouseCheckBox.CheckedChanged += new System.EventHandler(this.mouseCheckBox_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(296, 251);
+            this.ClientSize = new System.Drawing.Size(296, 273);
+            this.Controls.Add(this.mouseCheckBox);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.initButton);
@@ -175,6 +188,7 @@ namespace MechKeyDroid
             this.groupBox2.ResumeLayout(false);
             this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -194,6 +208,7 @@ namespace MechKeyDroid
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
+        private System.Windows.Forms.CheckBox mouseCheckBox;
     }
 }
 

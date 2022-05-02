@@ -9,11 +9,25 @@ namespace MechKeyDroid
 {
     public partial class Form1 : MetroFramework.Forms.MetroForm
     {
-        double volumeMultiplier = 0.25;
+        double volumeMultiplier = 0.4;
         int keyPressed;
+        int j;
         int selectedOption;
         string normalPath;
         string aPath, bPath, cPath, dPath, ePath, fPath, gPath, hPath, iPath, jPath, kPath, lPath, mPath, nPath, oPath, pPath, qPath, rPath, sPath, tPath, uPath, vPath, wPath, xPath, yPath, zPath, tabPath, capsPath, enterPath, shiftPath, backspacePath;
+
+        private void mouseCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if(mouseCheckBox.Checked)
+            {
+                j = 0;
+            }
+            else
+            {
+                j = 8;
+            }
+        }
+
         string spacePath;
         bool trayNotifShown = false;
         
@@ -36,7 +50,7 @@ namespace MechKeyDroid
                 {
                     Thread.Sleep(5);
                     
-                    for (int i = 8; i < 255; i++) //start from i=0 for mouse clicks as well
+                    for (int i = j; i < 255; i++) //start from i=0 for mouse clicks as well
                     {
                         
                         int keyState = GetAsyncKeyState(i);
@@ -169,6 +183,14 @@ namespace MechKeyDroid
                                     //tab
                                     case 9:
                                         playSound(tabPath);
+                                        break;
+                                    //right mouse click
+                                    case 2:
+                                        playSound(fPath);
+                                        break;
+                                    //x2 mouse button
+                                    case 6:
+                                        playSound(aPath);
                                         break;
                                     //any other key not specified above
                                     default:
