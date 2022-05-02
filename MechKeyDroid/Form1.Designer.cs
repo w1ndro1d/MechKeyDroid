@@ -42,6 +42,8 @@ namespace MechKeyDroid
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.volumeTrackBar)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -50,7 +52,7 @@ namespace MechKeyDroid
             // 
             // initButton
             // 
-            this.initButton.Location = new System.Drawing.Point(100, 160);
+            this.initButton.Location = new System.Drawing.Point(111, 211);
             this.initButton.Name = "initButton";
             this.initButton.Size = new System.Drawing.Size(75, 32);
             this.initButton.TabIndex = 0;
@@ -70,14 +72,14 @@ namespace MechKeyDroid
             this.volumeTrackBar.Name = "volumeTrackBar";
             this.volumeTrackBar.Size = new System.Drawing.Size(222, 45);
             this.volumeTrackBar.TabIndex = 1;
-            this.volumeTrackBar.Value = 1;
+            this.volumeTrackBar.Value = 4;
             this.volumeTrackBar.ValueChanged += new System.EventHandler(this.volumeTrackBar_ValueChanged);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.volumeLabel);
             this.groupBox1.Controls.Add(this.volumeTrackBar);
-            this.groupBox1.Location = new System.Drawing.Point(12, 86);
+            this.groupBox1.Location = new System.Drawing.Point(23, 137);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(253, 68);
             this.groupBox1.TabIndex = 2;
@@ -91,7 +93,7 @@ namespace MechKeyDroid
             this.volumeLabel.Name = "volumeLabel";
             this.volumeLabel.Size = new System.Drawing.Size(13, 15);
             this.volumeLabel.TabIndex = 2;
-            this.volumeLabel.Text = "1";
+            this.volumeLabel.Text = "4";
             // 
             // selectComboBox
             // 
@@ -99,7 +101,7 @@ namespace MechKeyDroid
             this.selectComboBox.FormattingEnabled = true;
             this.selectComboBox.Items.AddRange(new object[] {
             "Default",
-            "Thock"});
+            "NovelKeys Cream"});
             this.selectComboBox.Location = new System.Drawing.Point(6, 22);
             this.selectComboBox.Name = "selectComboBox";
             this.selectComboBox.Size = new System.Drawing.Size(241, 23);
@@ -109,12 +111,12 @@ namespace MechKeyDroid
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.selectComboBox);
-            this.groupBox2.Location = new System.Drawing.Point(12, 12);
+            this.groupBox2.Location = new System.Drawing.Point(23, 63);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(253, 68);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Your choice";
+            this.groupBox2.Text = "Choose keyboard";
             // 
             // notifyIcon
             // 
@@ -154,13 +156,16 @@ namespace MechKeyDroid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(277, 200);
+            this.ClientSize = new System.Drawing.Size(296, 251);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.initButton);
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Opacity = 0.95D;
+            this.Resizable = false;
+            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
+            this.Style = MetroFramework.MetroColorStyle.Orange;
             this.Text = "MechKeyDroid";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.Form1_Resize);
@@ -187,6 +192,8 @@ namespace MechKeyDroid
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker2;
     }
 }
 

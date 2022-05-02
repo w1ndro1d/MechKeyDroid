@@ -7,11 +7,13 @@ using NAudio.Wave;
 
 namespace MechKeyDroid
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MetroFramework.Forms.MetroForm
     {
         double volumeMultiplier = 0.25;
         int keyPressed;
+        int selectedOption;
         string normalPath;
+        string aPath, bPath, cPath, dPath, ePath, fPath, gPath, hPath, iPath, jPath, kPath, lPath, mPath, nPath, oPath, pPath, qPath, rPath, sPath, tPath, uPath, vPath, wPath, xPath, yPath, zPath, tabPath, capsPath, enterPath, shiftPath, backspacePath;
         string spacePath;
         bool trayNotifShown = false;
         
@@ -44,30 +46,137 @@ namespace MechKeyDroid
                         if (keyState == -32767 && i != keyPressed)
                         {
                             keyPressed = i;
-                            
-                            //separate sound for Tab, CapsLock, LShift, RShift, Space, Backspace, Enter
-                            if (i == 9 || i == 20 || i == 160 || i == 161 || i == 32 || i == 8 || i == 13 || i == 16)
-                            {
-                                
-                                var wavReader = new WaveFileReader(spacePath);
-                                var wavOut = new WaveOut();
-                                wavOut.Volume = (float)volumeMultiplier;
-                                wavOut.Init(wavReader);
-                                wavOut.Play();
-                                
-                                
-                            }
-                            //for all keys except those above
-                            else
-                            {         
-                                
-                                var wavReader = new WaveFileReader(normalPath);
-                                var wavOut = new WaveOut();
-                                wavOut.Volume = (float)volumeMultiplier;
-                                wavOut.Init(wavReader);
-                                wavOut.Play();
 
+                            //two conditions for default sound
+                            if (selectedOption == 0)
+                            {
+                                //separate sound for Tab, CapsLock, LShift, RShift, Space, Backspace, Enter
+                                if (i == 9 || i == 20 || i == 160 || i == 161 || i == 32 || i == 8 || i == 13 || i == 16 || i == 17 || i == 18)
+                                {
+                                    playSound(spacePath);
+
+                                }
+                                //for all keys except those above
+                                else
+                                {
+                                    playSound(normalPath);
+
+                                }
                             }
+                            //conditions for nk-cream
+                            else if (selectedOption == 1)
+                            {
+                                switch(i)
+                                {
+                                    case 65:
+                                        playSound(aPath);
+                                        break;
+                                    case 66:
+                                        playSound(bPath);
+                                        break;
+                                    case 67:
+                                        playSound(cPath);
+                                        break;
+                                    case 68:
+                                        playSound(dPath);
+                                        break;
+                                    case 69:
+                                        playSound(ePath);
+                                        break;
+                                    case 70:
+                                        playSound(fPath);
+                                        break;
+                                    case 71:
+                                        playSound(gPath);
+                                        break;
+                                    case 72:
+                                        playSound(hPath);
+                                        break;
+                                    case 73:
+                                        playSound(iPath);
+                                        break;
+                                    case 74:
+                                        playSound(jPath);
+                                        break;
+                                    case 75:
+                                        playSound(kPath);
+                                        break;
+                                    case 76:
+                                        playSound(lPath);
+                                        break;
+                                    case 77:
+                                        playSound(mPath);
+                                        break;
+                                    case 78:
+                                        playSound(nPath);
+                                        break;
+                                    case 79:
+                                        playSound(oPath);
+                                        break;
+                                    case 80:
+                                        playSound(pPath);
+                                        break;
+                                    case 81:
+                                        playSound(qPath);
+                                        break;
+                                    case 82:
+                                        playSound(rPath);
+                                        break;
+                                    case 83:
+                                        playSound(sPath);
+                                        break;
+                                    case 84:
+                                        playSound(tPath);
+                                        break;
+                                    case 85:
+                                        playSound(uPath);
+                                        break;
+                                    case 86:
+                                        playSound(vPath);
+                                        break;
+                                    case 87:
+                                        playSound(wPath);
+                                        break;
+                                    case 88:
+                                        playSound(xPath);
+                                        break;
+                                    case 89:
+                                        playSound(yPath);
+                                        break;
+                                    case 90:
+                                        playSound(zPath);
+                                        break;
+                                    //backspace
+                                    case 8:
+                                        playSound(backspacePath);
+                                        break;
+                                    //capslock
+                                    case 20:
+                                        playSound(capsPath);
+                                        break;
+                                    //enter
+                                    case 13:
+                                        playSound(enterPath);
+                                        break;
+                                    //shift
+                                    case 16:
+                                        playSound(shiftPath);
+                                        break;
+                                    //space
+                                    case 32:
+                                        playSound(spacePath);
+                                        break;
+                                    //tab
+                                    case 9:
+                                        playSound(tabPath);
+                                        break;
+                                    //any other key not specified above
+                                    default:
+                                        playSound(gPath);
+                                        break;
+                                }
+                            }
+                            
                                                                             
                         }
                         //check for key release. keyState becomes positive when key is released
@@ -83,6 +192,15 @@ namespace MechKeyDroid
 
         }
 
+
+        private void playSound(string keyPath)
+        {
+            var wavReader = new WaveFileReader(keyPath);
+            var wavOut = new WaveOut();
+            wavOut.Volume = (float)volumeMultiplier;
+            wavOut.Init(wavReader);
+            wavOut.Play();
+        }
 
         private void initButton_Click(object sender, EventArgs e)
         {
@@ -191,13 +309,46 @@ namespace MechKeyDroid
         {
             if(selectComboBox.SelectedIndex == 0)//default option
             {
-                normalPath = "Resources/default_everything.wav";
-                spacePath = "Resources/default_space.wav";
+                selectedOption = 0;
+                normalPath = "Resources/default/default_everything.wav";
+                spacePath = "Resources/default/default_space.wav";
             }
-            else if(selectComboBox.SelectedIndex == 1)//thock option
+            else if(selectComboBox.SelectedIndex == 1)//nk cream option
             {
-                normalPath = "Resources/thock_everything.wav";
-                spacePath = "Resources/thock_space.wav";
+                selectedOption = 1;
+                normalPath = "Resources/nk-cream/g.wav";
+                aPath = "Resources/nk-cream/a.wav";
+                bPath = "Resources/nk-cream/b.wav";
+                cPath = "Resources/nk-cream/c.wav";
+                dPath = "Resources/nk-cream/d.wav";
+                ePath = "Resources/nk-cream/e.wav";
+                fPath = "Resources/nk-cream/f.wav";
+                gPath = "Resources/nk-cream/g.wav";
+                hPath = "Resources/nk-cream/h.wav";
+                iPath = "Resources/nk-cream/i.wav";
+                jPath = "Resources/nk-cream/j.wav";
+                kPath = "Resources/nk-cream/k.wav";
+                lPath = "Resources/nk-cream/l.wav";
+                mPath = "Resources/nk-cream/m.wav";
+                nPath = "Resources/nk-cream/n.wav";
+                oPath = "Resources/nk-cream/o.wav";
+                pPath = "Resources/nk-cream/p.wav";
+                qPath = "Resources/nk-cream/q.wav";
+                rPath = "Resources/nk-cream/r.wav";
+                sPath = "Resources/nk-cream/s.wav";
+                tPath = "Resources/nk-cream/t.wav";
+                uPath = "Resources/nk-cream/u.wav";
+                vPath = "Resources/nk-cream/v.wav";
+                wPath = "Resources/nk-cream/w.wav";
+                xPath = "Resources/nk-cream/x.wav";
+                yPath = "Resources/nk-cream/y.wav";
+                zPath = "Resources/nk-cream/z.wav";
+                tabPath = "Resources/nk-cream/tab.wav";
+                capsPath = "Resources/nk-cream/caps.wav";
+                enterPath = "Resources/nk-cream/enter.wav";
+                shiftPath = "Resources/nk-cream/shift.wav";
+                backspacePath = "Resources/nk-cream/backspace.wav";
+                spacePath = "Resources/nk-cream/space.wav";
             }
         }
     }
