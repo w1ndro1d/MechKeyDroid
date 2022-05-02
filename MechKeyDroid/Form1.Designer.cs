@@ -67,7 +67,6 @@ namespace MechKeyDroid
             // volumeTrackBar
             // 
             this.volumeTrackBar.Location = new System.Drawing.Point(6, 21);
-            this.volumeTrackBar.Maximum = 4;
             this.volumeTrackBar.Name = "volumeTrackBar";
             this.volumeTrackBar.Size = new System.Drawing.Size(222, 45);
             this.volumeTrackBar.TabIndex = 1;
