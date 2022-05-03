@@ -53,7 +53,7 @@ namespace MechKeyDroid
             // 
             // initButton
             // 
-            this.initButton.Location = new System.Drawing.Point(113, 235);
+            this.initButton.Location = new System.Drawing.Point(114, 244);
             this.initButton.Name = "initButton";
             this.initButton.Size = new System.Drawing.Size(75, 32);
             this.initButton.TabIndex = 0;
@@ -107,8 +107,11 @@ namespace MechKeyDroid
             "Topre(Rubbery)",
             "Alpaca(Awesome)",
             "Gateron InkBlack(Fine)",
-            "BlueAlps",
-            "BoxNavy"});
+            "BlueAlps(Boring)",
+            "BoxNavy(Boring)",
+            "Buckling(Typewriter-ish)",
+            "HolyPanda(Fine)",
+            "Cherry MX Black(Tactile)"});
             this.selectComboBox.Location = new System.Drawing.Point(6, 22);
             this.selectComboBox.Name = "selectComboBox";
             this.selectComboBox.Size = new System.Drawing.Size(241, 23);
@@ -174,7 +177,7 @@ namespace MechKeyDroid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(296, 273);
+            this.ClientSize = new System.Drawing.Size(296, 285);
             this.Controls.Add(this.mouseCheckBox);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
