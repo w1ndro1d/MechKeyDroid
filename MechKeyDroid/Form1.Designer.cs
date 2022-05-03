@@ -45,6 +45,8 @@ namespace MechKeyDroid
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.mouseCheckBox = new System.Windows.Forms.CheckBox();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.coffeeMetroTile = new MetroFramework.Controls.MetroTile();
             ((System.ComponentModel.ISupportInitialize)(this.volumeTrackBar)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -53,7 +55,7 @@ namespace MechKeyDroid
             // 
             // initButton
             // 
-            this.initButton.Location = new System.Drawing.Point(114, 244);
+            this.initButton.Location = new System.Drawing.Point(114, 235);
             this.initButton.Name = "initButton";
             this.initButton.Size = new System.Drawing.Size(75, 32);
             this.initButton.TabIndex = 0;
@@ -173,11 +175,27 @@ namespace MechKeyDroid
             this.mouseCheckBox.UseVisualStyleBackColor = true;
             this.mouseCheckBox.CheckedChanged += new System.EventHandler(this.mouseCheckBox_CheckedChanged);
             // 
+            // coffeeMetroTile
+            // 
+            this.coffeeMetroTile.ActiveControl = null;
+            this.coffeeMetroTile.Location = new System.Drawing.Point(189, 19);
+            this.coffeeMetroTile.Name = "coffeeMetroTile";
+            this.coffeeMetroTile.Size = new System.Drawing.Size(48, 38);
+            this.coffeeMetroTile.TabIndex = 5;
+            this.coffeeMetroTile.TileImage = global::MechKeyDroid.Properties.Resources.coffee;
+            this.coffeeMetroTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.toolTip.SetToolTip(this.coffeeMetroTile, "Support the creator of this app.");
+            this.coffeeMetroTile.UseCustomBackColor = true;
+            this.coffeeMetroTile.UseSelectable = true;
+            this.coffeeMetroTile.UseTileImage = true;
+            this.coffeeMetroTile.Click += new System.EventHandler(this.coffeeMetroTile_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(296, 285);
+            this.ClientSize = new System.Drawing.Size(296, 275);
+            this.Controls.Add(this.coffeeMetroTile);
             this.Controls.Add(this.mouseCheckBox);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -218,6 +236,8 @@ namespace MechKeyDroid
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.Windows.Forms.CheckBox mouseCheckBox;
+        private System.Windows.Forms.ToolTip toolTip;
+        private MetroFramework.Controls.MetroTile coffeeMetroTile;
     }
 }
 

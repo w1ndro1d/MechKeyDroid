@@ -4,6 +4,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using NAudio.Wave;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace MechKeyDroid
 {
@@ -15,6 +16,11 @@ namespace MechKeyDroid
         int selectedOption;
         string normalPath;
         string aPath, bPath, cPath, dPath, ePath, fPath, gPath, hPath, iPath, jPath, kPath, lPath, mPath, nPath, oPath, pPath, qPath, rPath, sPath, tPath, uPath, vPath, wPath, xPath, yPath, zPath, tabPath, capsPath, enterPath, backspacePath;
+
+        private void coffeeMetroTile_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer.exe","https://www.buymeacoffee.com/ankitphuyal");
+        }
 
         private void mouseCheckBox_CheckedChanged(object sender, EventArgs e)
         {

@@ -10,7 +10,7 @@
     <PackageIconUrl />
     <ApplicationIcon>mechkeydroid_icon.ico</ApplicationIcon>
     <Win32Resource />
-    <Version>1.1</Version>
+    <Version>1.2</Version>
   </PropertyGroup>
 
 	
@@ -115,6 +115,9 @@
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
 	  <None Update="Resources\buckling\space.wav">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Resources\coffee.png">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
 	  <None Update="Resources\default\default_everything.wav">
