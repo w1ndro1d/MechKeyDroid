@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Threading;
 using NAudio.Wave;
-
+using System.Collections.Generic;
 
 namespace MechKeyDroid
 {
@@ -39,6 +39,14 @@ namespace MechKeyDroid
             InitializeComponent();
             selectComboBox.SelectedIndex = 0; //set Default on startup
                 
+        }
+
+        private string pickRandomPath(string a, string b, string c, string d, string e)
+        {
+            var randPathList = new List<string> {a, b, c, d, e};
+            Random random = new Random();
+            int index = random.Next(randPathList.Count);
+            return randPathList[index];
         }
 
         private void handleKeyPress()
@@ -222,8 +230,284 @@ namespace MechKeyDroid
                                         break;
                                 }
                             }
-                            
-                                                                            
+                            //conditions for turquoise
+                            else if (selectedOption == 2)
+                            {
+                                switch (i)
+                                {
+                                    case 65:
+                                        playSound(pickRandomPath(aPath,bPath,cPath,dPath,ePath));
+                                        break;
+                                    case 66:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 67:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 68:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 69:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 70:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 71:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 72:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 73:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 74:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 75:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 76:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 77:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 78:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 79:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 80:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 81:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 82:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 83:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 84:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 85:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 86:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 87:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 88:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 89:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 90:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    //backspace
+                                    case 8:
+                                        playSound(backspacePath);
+                                        break;
+                                    //capslock
+                                    case 20:
+                                        playSound(backspacePath);
+                                        break;
+                                    //enter
+                                    case 13:
+                                        playSound(enterPath);
+                                        break;
+                                    //space
+                                    case 32:
+                                        playSound(spacePath);
+                                        break;
+                                    //tab
+                                    case 9:
+                                        playSound(backspacePath);
+                                        break;
+                                    //right mouse click
+                                    case 2:
+                                        playSound(bPath);
+                                        break;
+                                    //x2 mouse button
+                                    case 6:
+                                        playSound(aPath);
+                                        break;
+
+                                    //dont play sound for ctrl, shift and alt
+                                    case 16:
+                                        break;
+                                    case 17:
+                                        break;
+                                    case 18:
+                                        break;
+                                    case 160:
+                                        break;
+                                    case 161:
+                                        break;
+                                    case 162:
+                                        break;
+                                    case 163:
+                                        break;
+                                    case 164:
+                                        break;
+                                    case 165:
+                                        break;
+
+                                    //any other key not specified above
+                                    default:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                }
+                            }
+                            //conditions for topre
+                            else if (selectedOption == 3)
+                            {
+                                switch (i)
+                                {
+                                    case 65:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 66:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 67:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 68:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 69:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 70:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 71:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 72:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 73:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 74:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 75:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 76:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 77:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 78:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 79:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 80:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 81:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 82:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 83:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 84:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 85:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 86:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 87:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 88:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 89:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    case 90:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                    //backspace
+                                    case 8:
+                                        playSound(backspacePath);
+                                        break;
+                                    //capslock
+                                    case 20:
+                                        playSound(backspacePath);
+                                        break;
+                                    //enter
+                                    case 13:
+                                        playSound(enterPath);
+                                        break;
+                                    //space
+                                    case 32:
+                                        playSound(spacePath);
+                                        break;
+                                    //tab
+                                    case 9:
+                                        playSound(backspacePath);
+                                        break;
+                                    //right mouse click
+                                    case 2:
+                                        playSound(bPath);
+                                        break;
+                                    //x2 mouse button
+                                    case 6:
+                                        playSound(aPath);
+                                        break;
+
+                                    //dont play sound for ctrl, shift and alt
+                                    case 16:
+                                        break;
+                                    case 17:
+                                        break;
+                                    case 18:
+                                        break;
+                                    case 160:
+                                        break;
+                                    case 161:
+                                        break;
+                                    case 162:
+                                        break;
+                                    case 163:
+                                        break;
+                                    case 164:
+                                        break;
+                                    case 165:
+                                        break;
+
+                                    //any other key not specified above
+                                    default:
+                                        playSound(pickRandomPath(aPath, bPath, cPath, dPath, ePath));
+                                        break;
+                                }
+                            }
+
+
                         }
                         //check for key release. keyState becomes positive when key is released
                         //if key pressed now is the same key that was just pressed set flag to 0(reset the flag). this ensures audio is played even in consecutive presses of same key
@@ -389,11 +673,46 @@ namespace MechKeyDroid
                 xPath = "Resources/nk-cream/x.wav";
                 yPath = "Resources/nk-cream/y.wav";
                 zPath = "Resources/nk-cream/z.wav";
+
                 tabPath = "Resources/nk-cream/tab.wav";
                 capsPath = "Resources/nk-cream/caps.wav";
                 enterPath = "Resources/nk-cream/enter.wav";
                 backspacePath = "Resources/nk-cream/backspace.wav";
                 spacePath = "Resources/nk-cream/space.wav";
+            }
+            else if(selectComboBox.SelectedIndex == 2)//turquoise option
+            {
+                selectedOption = 2;
+                //we will use the same 5 files chosen randomly
+                aPath = "Resources/turquoise_tealio/rand1.wav";
+                bPath = "Resources/turquoise_tealio/rand2.wav";
+                cPath = "Resources/turquoise_tealio/rand3.wav";
+                dPath = "Resources/turquoise_tealio/rand4.wav";
+                ePath = "Resources/turquoise_tealio/rand5.wav";
+
+               
+                enterPath = "Resources/turquoise_tealio/enter.wav";
+                backspacePath = "Resources/turquoise_tealio/backspace.wav";
+                spacePath = "Resources/turquoise_tealio/space.wav";
+
+                
+            }
+            else if (selectComboBox.SelectedIndex == 3)//topre option
+            {
+                selectedOption = 3;
+                //we will use the same 5 files chosen randomly
+                aPath = "Resources/topre/rand1.wav";
+                bPath = "Resources/topre/rand2.wav";
+                cPath = "Resources/topre/rand3.wav";
+                dPath = "Resources/topre/rand4.wav";
+                ePath = "Resources/topre/rand5.wav";
+
+
+                enterPath = "Resources/topre/enter.wav";
+                backspacePath = "Resources/topre/backspace.wav";
+                spacePath = "Resources/topre/space.wav";
+
+
             }
         }
     }
