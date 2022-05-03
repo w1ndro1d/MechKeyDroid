@@ -9,4 +9,6 @@ Credits for NK-Cream sound: https://github.com/hainguyents13/mechvibes
 
 Credits for other sounds: https://github.com/tplai/kbsim
 
+Credits for application icon: https://www.flaticon.com/premium-icon/keyboard_3412104
+
 Note: You might need to download the latest .NET Framework Desktop Runtime 5.0 along with .NET 5.0 SDK in order to run the release correctly as the target platform for this application is .NET 5.0
