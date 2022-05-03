@@ -101,10 +101,14 @@ namespace MechKeyDroid
             this.selectComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.selectComboBox.FormattingEnabled = true;
             this.selectComboBox.Items.AddRange(new object[] {
-            "Default",
-            "NovelKeys Cream",
-            "Turquoise Tealio",
-            "Topre"});
+            "Default(Boring)",
+            "NovelKeys Cream(Satisfying)",
+            "Turquoise Tealio(Fine)",
+            "Topre(Rubbery)",
+            "Alpaca(Awesome)",
+            "Gateron InkBlack(Fine)",
+            "BlueAlps",
+            "BoxNavy"});
             this.selectComboBox.Location = new System.Drawing.Point(6, 22);
             this.selectComboBox.Name = "selectComboBox";
             this.selectComboBox.Size = new System.Drawing.Size(241, 23);
